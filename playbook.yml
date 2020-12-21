@@ -1,0 +1,19 @@
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - openssl_privatekey:
+        path: ./tls/key.pem
+        type: ECC
+        curve: secp256r1
+
+    - openssl_csr:
+        path: ./tls/csr.pem
+        privatekey_path: ./tls/key.pem
+        common_name: example.com
+
+    - openssl_certificate:
+        path: ./tls/crt.pem
+        csr_path: ./tls/csr.pem
+        privatekey_path: ./tls/key.pem
+        provider: selfsigned
