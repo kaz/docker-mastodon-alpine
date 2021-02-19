@@ -6,7 +6,7 @@ RUN apk add \
 		ruby ruby-bundler ruby-json ruby-bigdecimal ruby-dev \
 		zlib-dev openssl-dev postgresql-dev icu-dev protobuf-dev libidn-dev
 
-ARG MASTODON_VERSION=v3.2.2
+ARG MASTODON_VERSION=v3.3.0
 RUN mkdir -p /opt/mastodon &&\
 	wget -O- https://github.com/tootsuite/mastodon/archive/$MASTODON_VERSION.tar.gz | tar zxvf - -C /opt/mastodon --strip-components 1
 
